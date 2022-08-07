@@ -1,0 +1,22 @@
+for intel graphics
+install xbacklight <# apt install xbacklight>
+touch /etc/X11/xorg.conf --add the following lines--
+-------------------------------------------------------                                       
+section "Device"
+        Identifier "Intel Graphics"
+        Driver     "Intel"
+        Option     "Backlight"    "intel_backlight"
+EndSection
+---------------------------------------------------------
+cd ~/.fluxbox --and edit keys file
+--add the following--use xev to find your keys------
+---------------------------------------------------------
+#screen brightness
+#keys: dim 232, bright 233
+XF86MonBrightnessDown : Exec xbacklight -dec 10
+Mod1 XF86MonBrightnessDown : Exec xbacklight -dec 3
+Mod4 XF86MonBrightnessDown : Exec xbacklight -set 15
+XF86MonBrightnessUp : Exec xbacklight -inc 10
+Mod1 XF86MonBrightnessUp : Exec xbacklight -inc 3
+Mod4 XF86MonBrightnessUp : Exec xbacklight -set 100
+--------------------------------------------------------
